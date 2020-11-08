@@ -2,10 +2,12 @@ package Pieces;
 
 import java.util.ArrayList;
 
+import Configuration.Settings;
+
 public class Knight extends Piece {
 
 	public Knight(boolean IsWhite) {
-		super("Knight", 'N', 0x2658, 3, IsWhite);
+		super(PieceType.Knight, "Knight", 'N', 0x2658, Settings.KNIGHT_VALUE, IsWhite);
 	}
 
 	@Override

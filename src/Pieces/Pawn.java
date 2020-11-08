@@ -2,10 +2,12 @@ package Pieces;
 
 import java.util.ArrayList;
 
+import Configuration.Settings;
+
 public class Pawn extends Piece {
 
 	public Pawn(boolean IsWhite) {
-		super("Pawn", 'P', 0x2659, 1, IsWhite);
+		super(PieceType.Pawn, "Pawn", 'P', 0x2659, Settings.PAWN_VALUE, IsWhite);
 	}
 
 	@Override

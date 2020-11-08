@@ -21,6 +21,10 @@ public class Square {
 		return Occupant;
 	}
 	
+	public void Clear() {
+		Occupant = null;
+	}
+	
 	public void SetOccupant(Piece Occupant) {
 		this.Occupant = Occupant;
 		this.Occupant.SetSquare(this); // point the occupant to this piece so it knows where it is.

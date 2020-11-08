@@ -2,10 +2,12 @@ package Pieces;
 
 import java.util.ArrayList;
 
+import Configuration.Settings;
+
 public class Bishop extends Piece {
 
 	public Bishop(boolean IsWhite) {
-		super("Bishop", 'B', 0x2657, 3, IsWhite);
+		super(PieceType.Bishop, "Bishop", 'B', 0x2657, Settings.BISHOP_VALUE, IsWhite);
 	}
 
 	@Override

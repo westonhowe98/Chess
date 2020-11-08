@@ -10,6 +10,19 @@ public class Move {
 		this.Destination = Destination;
 	}
 	
+	public String Execute() {
+		String Notation = toString();
+		
+		if(IsCapture())
+			GetDestination().GetOccupant().Capture();
+		
+		Piece Piece = GetPiece();
+		GetOrigin().Clear(); // Clear origin before moving to destination
+		GetDestination().SetOccupant(Piece); // Move piece to destination
+	
+		return Notation;
+	}
+	
 	public Piece GetPiece() {
 		// return the piece that will be moving
 		return GetOrigin().GetOccupant();
@@ -37,14 +50,24 @@ public class Move {
 	
 	public boolean IsBlocked() {
 		// if destination is empty then can't be blocked.
-			if(!GetDestination().IsOccupied())
-				return false;
+		if(!GetDestination().IsOccupied())
+			return false;
 		
 		// if the occupying piece is the same color as the origin piece then move is blocked
 		return GetDestination().GetOccupant().IsWhite() == GetPiece().IsWhite();
 	}
 	
 	public String toString() {
-		return Character.toString(GetPiece().toChar()) + GetDestination().GetCoords();
+		String Move = "";
+		
+		if(GetPiece().GetName() != "Pawn")
+			Move += Character.toString(GetPiece().toChar());
+		
+		if(IsCapture())
+			Move += "x";
+		
+		Move += GetDestination().GetCoords();
+		return  Move;
 	}
+	
 }

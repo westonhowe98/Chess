@@ -2,10 +2,12 @@ package Pieces;
 
 import java.util.ArrayList;
 
+import Configuration.Settings;
+
 public class Queen extends Piece {
 
 	public Queen(boolean IsWhite) {
-		super("Queen", 'Q', 0x2655, 9, IsWhite);
+		super(PieceType.Queen, "Queen", 'Q', 0x2655, Settings.QUEEN_VALUE, IsWhite);
 	}
 
 	@Override
